@@ -34,3 +34,16 @@ import 'cypress-real-events/support';
 
 import '@4tw/cypress-drag-drop'
 
+
+
+//custom command
+Cypress.Commands.add("clickLink",(label)=>{
+    cy.contains("a",label).click();
+})
+
+
+Cypress.Commands.add("Login",(username,password)=>{
+    cy.get("input[placeholder='Username']").type(username);
+    cy.get("input[placeholder='Password']").type(password);
+    cy.get("button[type='submit']").click();
+})
